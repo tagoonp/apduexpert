@@ -4,16 +4,15 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 date_default_timezone_set("Asia/Bangkok");
 
-// $host = 'localhost';
-// // $user = 'root';
-// // $password = 'mandymorenn';
+$host = 'localhost';
+$dbname = 'expert_database';
+
+$user = 'root';
+$password = 'mandymorenn';
+
 // $user = 'apdu';
 // $password = 'apdu0303';
-$host = 'localhost';
-$user = 'apdu';
-$password = 'apdu0303';
-$dbname = 'expert_database';
-// $dbname = 'apdu2018';
+
 
 $conn = mysqli_connect($host, $user, $password, $dbname);
 

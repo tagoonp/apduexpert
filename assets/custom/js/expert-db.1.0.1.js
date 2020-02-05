@@ -1,10 +1,13 @@
 let sys = 'expertdb_'
 var curr_user = window.localStorage.getItem(sys + 'uid')
 var curr_role = window.localStorage.getItem(sys + 'role')
-var page_index = 'index.html'
-// var api_url = 'http://localhost/expert/controller/'
-var api_url = 'http://apdu.medicine.psu.ac.th/expert/controller/'
-var root_domain = 'http://apdu.medicine.psu.ac.th/expert/'
+var page_index = 'index'
+
+var api_url = 'http://localhost/apduexpert/controller/'
+var root_domain = 'http://localhost/apduexpert/'
+
+// var api_url = 'http://apdu.medicine.psu.ac.th/expert/controller/'
+// var root_domain = 'http://apdu.medicine.psu.ac.th/expert/'
 
 var app = {
   init_chart_profile_view: function(expert_id){
@@ -94,6 +97,55 @@ var app = {
                    alert('Can not delete expertise.')
                  }
                })
+  },
+  get_curr_user_research_portal(check, a){
+    var param = {
+      epid: curr_expert,
+      uid: curr_user
+    }
+
+    var jxr = $.post(api_url + 'get_curr_portal_list.php', param, function(){}, 'json')
+               .always(function(snap){
+                 if((snap != '') && (snap.length > 0)){
+                   $('#headerPortal').removeClass('dn')
+                   snap.forEach(i=>{
+                     $('.p_portal_1').html(i.researchgate)
+                     $('.p_portal_2').html(i.googlescholar)
+                     $('.p_portal_3').html(i.scopus)
+                     $('.p_portal_4').html(i.pubmed)
+
+                     $('#txtPortal_1').val(i.researchgate)
+                     $('#txtPortal_2').val(i.googlescholar)
+                     $('#txtPortal_3').val(i.scopus)
+                     $('#txtPortal_4').val(i.pubmed)
+
+                     if((i.researchgate != '') && (i.researchgate != '-') && (i.researchgate != null)){
+                       $('#btnPortal_1').removeClass('dn')
+                     }
+
+                     if((i.googlescholar != '') && (i.googlescholar != '-') && (i.googlescholar != null)){
+                       $('#btnPortal_2').removeClass('dn')
+                     }
+
+                     if((i.scopus != '') && (i.scopus != '-') && (i.scopus != null)){
+                       $('#btnPortal_3').removeClass('dn')
+                     }
+
+                     if((i.pubmed != '') && (i.pubmed != '-') && (i.pubmed != null)){
+                       $('#btnPortal_4').removeClass('dn')
+                     }
+                   })
+                 }else{
+                   $('.p_portal_1').html('-')
+                   $('.p_portal_2').html('-')
+                   $('.p_portal_3').html('-')
+                   $('.p_portal_4').html('-')
+                 }
+               })
+
+    if(check == 'get_curr_user_education'){
+      setTimeout(function(){ preload.hide() }, 500)
+    }
   },
   get_curr_user_education: function(check, a){
     // expertise-ul
@@ -195,6 +247,31 @@ var app = {
     if(check == 'get_curr_user_publication'){
       setTimeout(function(){ preload.hide() }, 2000)
     }
+  },
+  createPortal: function(){
+    var param = {
+      portal_1: $('#txtPortal_1').val(),
+      portal_2: $('#txtPortal_2').val(),
+      portal_3: $('#txtPortal_3').val(),
+      portal_4: $('#txtPortal_4').val(),
+      method: 'add',
+      epid: curr_expert,
+      uid: curr_user
+    }
+
+    preload.show()
+
+    var jxr = $.post(api_url + 'set_research_portal.php', param, function(){})
+               .always(function(resp){
+                 console.log(resp);
+                 if(resp == 'Y'){
+                   window.location.reload()
+                 }else{
+                   preload.hide()
+                   alert('Can not update research portal information')
+                 }
+               })
+
   },
   createContact: function(){
     $check = 0
@@ -400,6 +477,12 @@ var app = {
                                '</tr>'
                       $('#staff-list').append($data)
                    })
+
+                   $("#table-1").dataTable({
+                     "columnDefs": [
+                       { "sortable": false, "targets": [2,3] }
+                     ]
+                   });
                  }else{
 
                  }
@@ -621,5 +704,5 @@ function search(method, key){
 
 function viewInfo(id){
   window.localStorage.setItem(sys + '_selected_expert', id)
-  window.location = 'view_expert.html'
+  window.location = 'view_expert'
 }

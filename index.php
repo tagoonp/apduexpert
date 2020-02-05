@@ -37,7 +37,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand text-white" href="index.html" style="font-weight: 400;">MedExpertise.DB</a>
+            <a class="navbar-brand text-white" href="index" style="font-weight: 400;">MedExpertise.DB</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -47,7 +47,7 @@
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link btn-rotate text-white" href="login.html">
+                <a class="nav-link btn-rotate text-white" href="login">
                   <i class="nc-icon nc-single-02"></i> Login
                   <p>
                     <span class="d-lg-none d-md-block">Account</span>

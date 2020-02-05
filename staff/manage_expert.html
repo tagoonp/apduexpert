@@ -216,6 +216,46 @@
         </div>
       </div>
 
+      <div class="modal fade" id="addPortalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title" id="exampleModalLongTitle">Add web research portal</h5>
+              <button type="button" class="close btnCloseModal" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form onsubmit="return false;" id="addStaffForm">
+                <div class="form-group">
+                  <label for="" class="fs08">Researchgate URL : <span class="text-danger"></span></label>
+                  <input type="text" class="form-control" id="txtPortal_1" placeholder="Add URL ...">
+                </div>
+
+                <div class="form-group">
+                  <label for="" class="fs08">Google scholar URL : <span class="text-danger"></span></label>
+                  <input type="text" class="form-control" id="txtPortal_2" placeholder="Add URL ...">
+                </div>
+
+                <div class="form-group">
+                  <label for="" class="fs08">Scopus URL : <span class="text-danger"></span></label>
+                  <input type="text" class="form-control" id="txtPortal_3" placeholder="Add URL ...">
+                </div>
+
+                <div class="form-group">
+                  <label for="" class="fs08">Pubmed URL : <span class="text-danger"></span></label>
+                  <input type="text" class="form-control" id="txtPortal_4" placeholder="Add URL ...">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button class="btn btn-primary" type="button" id="btnCreatePortal">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="modal fade" id="addEducationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
           <div class="modal-content">
@@ -457,6 +497,47 @@
                           </div>
                         </div>
 
+                        <div class="row mt-3">
+                          <div class="col-12">
+                            <hr class="mt-0">
+                            <div class="row">
+                              <div class="col-9">
+                                <h6 class="text-warning mb-2">Research portal</h6>
+                              </div>
+                              <div class="col-3 text-right">
+                                <a href="Javascript:app.showModal('addPortalModal')" class="text-muted"><i class="fa fa-pencil"></i> Edit</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12 col-sm-4">
+                            Researchgate :
+                          </div>
+                          <div class="col-12 col-sm-8">
+                            <span class="p_portal_1">-</span>
+                          </div>
+                          <div class="col-12 col-sm-4">
+                            Google scholar :
+                          </div>
+                          <div class="col-12 col-sm-8">
+                            <span class="p_portal_2">-</span>
+                          </div>
+                          <div class="col-12 col-sm-4">
+                            Schopus :
+                          </div>
+                          <div class="col-12 col-sm-8">
+                            <span class="p_portal_3">-</span>
+                          </div>
+                          <div class="col-12 col-sm-4">
+                            Pubmed :
+                          </div>
+                          <div class="col-12 col-sm-8">
+                            <span class="p_portal_4">-</span>
+                          </div>
+                        </div>
+
 
                       </div>
                     </div>
@@ -529,7 +610,7 @@
         <div class="container-fluid">
           <div class="row">
             <nav class="footer-nav">
-              <ul>
+              <!-- <ul>
                 <li>
                   <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>
                 </li>
@@ -539,7 +620,7 @@
                 <li>
                   <a href="https://www.creative-tim.com/license" target="_blank">Licenses</a>
                 </li>
-              </ul>
+              </ul> -->
             </nav>
             <div class="credits ml-auto">
               <span class="copyright">
@@ -590,6 +671,7 @@
       app.get_curr_user_publication('', true)
       app.get_curr_user_expertise('', true)
       app.get_curr_user_education('', true)
+      app.get_curr_user_research_portal('', true)
       app.init_chart_profile_view(curr_expert)
 
       // console.log();
@@ -607,6 +689,10 @@
 
       $('#btnCreateContact').click(function(){
         app.createContact()
+      })
+
+      $('#btnCreatePortal').click(function(){
+        app.createPortal()
       })
     });
   </script>

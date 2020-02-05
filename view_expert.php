@@ -36,7 +36,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand text-white" href="index.html" style="font-weight: 400;">MedExpertise.DB</a>
+            <a class="navbar-brand text-white" href="index" style="font-weight: 400;">MedExpertise.DB</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -46,7 +46,7 @@
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link btn-rotate text-white" href="login.html">
+                <a class="nav-link btn-rotate text-white" href="login">
                   <i class="nc-icon nc-single-02"></i> Login
                   <p>
                     <span class="d-lg-none d-md-block">Account</span>
@@ -72,7 +72,7 @@
                 <h4 class="card-title">Research Profile</h4>
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home mr-2"></i>Home</a></li>
+                    <li class="breadcrumb-item"><a href="index"><i class="fa fa-home mr-2"></i>Home</a></li>
                     <li class="breadcrumb-item active exp_fullname_en" aria-current="page">Library</li>
                   </ol>
                 </nav>
@@ -177,6 +177,26 @@
                           </div>
                         </div>
 
+                        <div class="row mt-3 dn" id="headerPortal">
+                          <div class="col-12">
+                            <hr class="mt-0">
+                            <div class="row">
+                              <div class="col-12">
+                                <h6 class="text-warning mb-2">Research profile on </h6>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <div class="col-12">
+                            <img src="./img/researchgate_icon.png" alt="" width="100" id="btnPortal_1" class="dn" style="cursor: pointer;">
+                            <img src="./img/gs_icon.png" alt=""  width="100" id="btnPortal_2" class="dn" style="cursor: pointer;">
+                            <img src="./img/sc_icon.png" alt=""  width="100" id="btnPortal_3" class="dn" style="cursor: pointer;">
+                            <img src="./img/pubmed_icon.png" alt=""  width="100" id="btnPortal_4" class="dn" style="cursor: pointer;">
+                          </div>
+                        </div>
+
 
                       </div>
                     </div>
@@ -230,7 +250,7 @@
         <div class="container-fluid">
           <div class="row">
             <nav class="footer-nav">
-              <ul>
+              <!-- <ul>
                 <li>
                   <a href="https://www.creative-tim.com" target="_blank">How to</a>
                 </li>
@@ -243,7 +263,7 @@
                 <li>
                   <a href="https://www.creative-tim.com/license" target="_blank">Contact</a>
                 </li>
-              </ul>
+              </ul> -->
             </nav>
             <div class="credits ml-auto">
               <span class="copyright">
@@ -285,12 +305,40 @@
       app.get_curr_user_publication('', false)
       app.get_curr_user_expertise('', false)
       app.get_curr_user_education('', false)
+      app.get_curr_user_research_portal('', false)
       app.set_view_stat(curr_expert)
       app.init_chart_profile_view(curr_expert)
     });
 
     $(function(){
       console.log(curr_expert);
+      $('#btnPortal_1').click(function(){
+          var jxr = $.post(api_url + 'get_curr_portal_link.php', {epid: curr_expert, par: 'researchgate'}, function(){})
+                     .always(function(resp){
+                       window.open(resp, target="_blank")
+                     })
+      })
+
+      $('#btnPortal_2').click(function(){
+          var jxr = $.post(api_url + 'get_curr_portal_link.php', {epid: curr_expert, par: 'googlescholar'}, function(){})
+                     .always(function(resp){
+                       window.open(resp, target="_blank")
+                     })
+      })
+
+      $('#btnPortal_3').click(function(){
+          var jxr = $.post(api_url + 'get_curr_portal_link.php', {epid: curr_expert, par: 'scopus'}, function(){})
+                     .always(function(resp){
+                       window.open(resp, target="_blank")
+                     })
+      })
+
+      $('#btnPortal_4').click(function(){
+          var jxr = $.post(api_url + 'get_curr_portal_link.php', {epid: curr_expert, par: 'pubmed'}, function(){})
+                     .always(function(resp){
+                       window.open(resp, target="_blank")
+                     })
+      })
     })
   </script>
 </body>
