@@ -202,7 +202,7 @@
         <div class="container-fluid">
           <div class="row">
             <nav class="footer-nav">
-              <ul>
+              <!-- <ul>
                 <li>
                   <a href="https://www.creative-tim.com" target="_blank">How to</a>
                 </li>
@@ -215,7 +215,7 @@
                 <li>
                   <a href="https://www.creative-tim.com/license" target="_blank">Contact</a>
                 </li>
-              </ul>
+              </ul> -->
             </nav>
             <div class="credits ml-auto">
               <span class="copyright">
@@ -237,19 +237,13 @@
   <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!--  Notifications Plugin    -->
   <script src="./assets/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
   <script src="./node_modules/preload.js/dist/js/preload.js"></script>
-  <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-  <!-- <script src="./assets/demo/demo.js"></script> -->
 
-  <script src="./assets/custom/js/expert-db.1.0.1.js"></script>
-  <!-- <script src="./assets/custom/js/expert-authen.1.0.1.js"></script> -->
+  <script src="./assets/custom/js/expert-db.1.0.1.js?token=<?php echo date('U'); ?>"></script>
 
   <script>
     $(document).ready(function() {
-      // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
-      // demo.initChartsPages();
       preload.hide()
     });
 

@@ -139,7 +139,7 @@ if($method == '1'){
               LEFT JOIN dept d ON a.p_dept = d.id_dept
               LEFT JOIN user_profile p ON a.pid = p.profile_pid
              WHERE
-              a.p_dept LIKE '$searchkey%'
+              a.p_dept = '$searchkey'
               AND a.p_approved = 'Y'
               AND a.p_delete = 'N'
               AND p.profile_status = 'Y'

@@ -3,11 +3,11 @@ var curr_user = window.localStorage.getItem(sys + 'uid')
 var curr_role = window.localStorage.getItem(sys + 'role')
 var page_index = 'index'
 
-var api_url = 'http://localhost/apduexpert/controller/'
-var root_domain = 'http://localhost/apduexpert/'
+// var api_url = 'http://localhost/apduexpert/controller/'
+// var root_domain = 'http://localhost/apduexpert/'
 
-// var api_url = 'http://apdu.medicine.psu.ac.th/expert/controller/'
-// var root_domain = 'http://apdu.medicine.psu.ac.th/expert/'
+var api_url = 'http://apdu.medicine.psu.ac.th/expert/controller/'
+var root_domain = 'http://apdu.medicine.psu.ac.th/expert/'
 
 var app = {
   init_chart_profile_view: function(expert_id){
@@ -526,12 +526,12 @@ var app = {
                    })
                  }else{
                    alert('Unknown error')
-                   window.location = 'user.html'
+                   window.location = './'
                    return ;
                  }
                })
     if(check == 'get_expert_info'){
-      setTimeout(function(){ preload.hide() }, 2000)
+      setTimeout(function(){ preload.hide() }, 500)
     }
   },
   createExpert(){

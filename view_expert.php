@@ -190,10 +190,10 @@
 
                         <div class="row mb-3">
                           <div class="col-12">
-                            <img src="./img/researchgate_icon.png" alt="" width="100" id="btnPortal_1" class="dn" style="cursor: pointer;">
-                            <img src="./img/gs_icon.png" alt=""  width="100" id="btnPortal_2" class="dn" style="cursor: pointer;">
                             <img src="./img/sc_icon.png" alt=""  width="100" id="btnPortal_3" class="dn" style="cursor: pointer;">
                             <img src="./img/pubmed_icon.png" alt=""  width="100" id="btnPortal_4" class="dn" style="cursor: pointer;">
+                            <img src="./img/researchgate_icon.png" alt="" width="100" id="btnPortal_1" class="dn" style="cursor: pointer;">
+                            <img src="./img/gs_icon.png" alt=""  width="100" id="btnPortal_2" class="dn" style="cursor: pointer;">
                           </div>
                         </div>
 
@@ -209,7 +209,7 @@
 
 
 
-              <div class="card mb-3">
+              <div class="card mb-3 dn">
                 <div class="card-header ">
                   <div class="row">
                     <div class="col-12 col-sm-8">
@@ -293,7 +293,7 @@
   <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
   <!-- <script src="./assets/demo/demo.js"></script> -->
 
-  <script src="./assets/custom/js/expert-db.1.0.1.js"></script>
+  <script src="./assets/custom/js/expert-db.1.0.1.js?token=<?php echo date('U'); ?>"></script>
   <!-- <script src="./assets/custom/js/expert-authen.1.0.1.js"></script> -->
 
   <script>
