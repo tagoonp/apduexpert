@@ -27,7 +27,7 @@
 
     <div class="main-panel" style="float:left; width: 100%">
       <!-- Navbar -->
-      <!-- <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent" style="background: #51cbce !important;">
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent" style="background: #51cbce !important;">
         <div class="container-fluid">
           <div class="navbar-wrapper">
             <div class="navbar-toggle">
@@ -57,7 +57,7 @@
             </ul>
           </div>
         </div>
-      </nav> -->
+      </nav>
       <!-- End Navbar -->
       <!-- <div class="panel-header panel-header-lg">
 
@@ -65,8 +65,8 @@
 
 
 </div> -->
-      <div class="content" style="margin-top: 0px;">
-        <img src="./img/banner-1.png" alt="" width="100%">
+      <div class="content">
+
         <div class="row">
           <div class="col-12 text-center d-block d-sm-none">
             <button class="btn btn-primary">Keywords</button>
